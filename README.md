@@ -19,7 +19,7 @@ Ensure the build environment is configured with the required libraries and tools
 ### API Endpoints and Stats Details
 #### Queue Stats 
 * Endpoint: /stats/queue/{name}
-* Data (DAILY interval)
+* Data (CURRENT)
   * queuedCount: number of calls currently in queue
   * connectedCount: number of calls currently connected to agents
   * abandonedCount: number of calls that has been abandoned while in queue
@@ -31,7 +31,7 @@ Ensure the build environment is configured with the required libraries and tools
   
 #### Team Stats
 * Endpoint: /stats/team/{name}
-* Data (DAILY interval)
+* Data (CURRENT)
   * avgIdleTime: average idle time for agents in the team
   * avgAvailTime: average available time for agents in the team
   * avgTalkTime: average talk time for agent in the team
