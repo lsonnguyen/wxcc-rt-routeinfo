@@ -1,0 +1,62 @@
+{
+  taskDetails(
+    from: FROM_EPOCH
+    to: TO_EPOCH
+    filter: { 
+        and: [
+            { channelType: { equals: telephony }}   
+            { lastQueue: { id: { notequals: null }}}
+        ]   
+    }
+    aggregations: [
+        {
+            field: "id"
+            type: count
+            name: "queuedCount"
+            filter: {
+                status: { equals: "parked"}
+            }
+        }    
+        {
+            field: "id"
+            type: count
+            name: "connectedCount"
+            filter: {
+                status: { equals: "connected"}
+            }
+        }    
+        {
+            field: "id"
+            type: count
+            name: "abandonedCount"
+            filter: {
+                terminationType: { equals: "abandoned"}
+            }
+        }           
+        {
+            field: "lastAgent.id"
+            type: cardinality
+            name: "agentCount"
+        }  
+        { 
+            field: "queueDuration" 
+            type: average
+            name: "avgQueueTime" 
+        }
+        { 
+            field: "connectedDuration"
+            type: average
+            name: "avgTalkTime" 
+        }
+    ]
+  ) {
+    tasks {
+      queue: lastQueue { id name }
+      aggregation { name  value }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+}

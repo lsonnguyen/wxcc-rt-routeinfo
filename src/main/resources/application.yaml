@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: wxcc-router
+  datasource:
+    url: jdbc:h2:mem:wxcc-router
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: update
+  main: 
+    allow-bean-definition-overriding: true
+  security:
+    oauth2:
+      client:
+        provider:
+          wxccrouter:
+            authorization-uri: https://webexapis.com/v1/authorize
+            token-uri: https://webexapis.com/v1/access_token
+            user-info-uri: https://webexapis.com/v1/people/me
+            user-name-attribute: userName
+        registration:
+          wxccrouter:
+            client-id: <Your WxCC App Client ID>
+            client-secret: <Your WxCC App Client Secret>
+            scope: cjp:config,cjp:config_read,cjp:config_write,cjp:user,spark:people_read
+            authorization-grant-type: authorization_code
+            redirect-uri: <Service Base URL>/login/oauth2/code/wxccrouter
+            login-uri: /
+  codec:
+    max-in-memory-size: 5MB
+  mvc:
+    ignore-default-headers: true
+server:
+  http2:
+    enabled: true
+  port: 80
+  forward-headers-strategy: native
+  servlet:
+    session:
+      cookie:
+        max-age: -1
+      timeout: -1   
+wxcc:
+  api:
+    apiBaseUrl: https://api.wxcc-us1.cisco.com
+    loggedInUrl: /index.html
+    loggedOutUrl: https://idbroker.webex.com/idb/oauth2/v1/logout
+
+logging:
+  level:
+    ROOT: INFO
+  

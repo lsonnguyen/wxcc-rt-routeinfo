@@ -1,0 +1,40 @@
+package com.cisco.wxcc.router.event.model;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonInclude(Include.NON_NULL)
+public class Subscription {
+
+	private String id;
+
+	private String name;
+
+	private String description;
+
+	private List<String> eventTypes;
+
+	private String destinationUrl;
+
+	private String secret;
+
+	private String orgId;
+
+	private String resourceVersion;
+
+	private String createdBy;
+
+	private String status;
+
+}

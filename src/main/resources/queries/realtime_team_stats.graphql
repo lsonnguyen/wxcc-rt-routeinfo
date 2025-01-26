@@ -1,0 +1,74 @@
+{
+  agentSession(
+    from: FROM_EPOCH
+    to: TO_EPOCH
+    filter: {
+        and: [
+            { channelInfo: { channelType: { equals: "telephony" } } }
+            { teamName: { notequals: null }}
+        ]
+    }
+    aggregations: [
+        { 
+            field : "channelInfo.currentState"
+            type : count
+            name : "idleAgents"
+            filter: {
+                channelInfo: {
+                    currentState: { equals: idle }
+                }
+            }
+        }
+        { 
+            field : "channelInfo.currentState"
+            type : count
+            name : "availAgents"
+            filter: {
+                channelInfo: {
+                    currentState: { equals: available }
+                }
+            }
+        }
+        { 
+            field : "channelInfo.currentState"
+            type : count
+            name : "talkAgents"
+            filter: {
+                channelInfo: {
+                    currentState: { equals: connected }
+                }
+            }
+        }
+        { 
+            field : "channelInfo.idleDuration"
+            type : average
+            name : "avgIdleTime"
+        }
+        { 
+            field : "channelInfo.availableDuration"
+            type : average
+            name : "avgAvailTime"
+        }
+        { 
+            field : "channelInfo.connectedDuration"
+            type : average
+            name : "avgTalkTime"
+        }
+        { 
+            field : "channelInfo.totalDuration"
+            type : average
+            name : "avgTotalTime"
+        }
+    ]
+  ) {
+    agentSessions {
+        teamId
+        teamName
+        aggregation { name value }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+}
