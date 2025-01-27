@@ -20,7 +20,7 @@
 		</rollingPolicy>
 	</appender>
 	<root level="info">
-		<!-- appender-ref ref="STDOUT" /-->
-		<appender-ref ref="TOFILE" />
+		<appender-ref ref="STDOUT" />
+		<!-- appender-ref ref="TOFILE" /-->
 	</root>
 </configuration>

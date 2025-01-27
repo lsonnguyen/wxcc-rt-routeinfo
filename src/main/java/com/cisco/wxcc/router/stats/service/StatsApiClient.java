@@ -21,7 +21,7 @@ import reactor.util.retry.Retry;
 public class StatsApiClient extends WxccApiClient {
 
 	public QueryResp search(Query query) {
-		log.debug("Search query: {}", query);
+		log.debug("Search API query: {}", query);
 
 		try {
 			return CompletableFuture.supplyAsync(() -> {
@@ -62,7 +62,7 @@ public class StatsApiClient extends WxccApiClient {
 	}
 
 	public Ewt ewt(String queueId) {
-		log.debug("EWT query: {}", queueId);
+		log.debug("Queue EWT query: {}", queueId);
 
 		try {
 			return CompletableFuture.supplyAsync(() -> {

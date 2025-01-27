@@ -107,15 +107,4 @@ public class AgentEventService {
         }).start();
 
 	}
-
-	/*
-	public void updateAgentData(AgentData data) {
-		agentStore.save(data);
-		agentStore.findAll().forEach(ad -> {
-			LogUtil.logObj("AgentData", ad);
-		});
-		log.info("Idle count: {}", agentStore.countByCurrentState(AgentState.IDLE));
-		log.info("Avail count: {}", agentStore.countByCurrentState(AgentState.AVAILABLE));
-	}
-	*/
 }

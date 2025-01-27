@@ -76,7 +76,9 @@ public class AuthenticatedHandler implements AuthenticationSuccessHandler {
 			e.printStackTrace();
 		}
 
+		// Publish authentication info when user has successfully logged in to activate data services
 		eventPublisher.publishEvent(ai);
+		
 		response.sendRedirect(serviceConfig.getLoggedInUrl());
 	}
 

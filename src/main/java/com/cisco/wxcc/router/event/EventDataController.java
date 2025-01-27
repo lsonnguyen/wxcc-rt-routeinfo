@@ -25,6 +25,8 @@ public class EventDataController {
 	@Bean
 	RouterFunction<ServerResponse> eventsRoutes(EventApiClient eventApiClient,
 			AgentEventService agentEventService, TaskEventService taskEventService) {
+		
+		// API endpoints for webhook event notification and retrieval
 		return RouterFunctions.route()
 				.POST("/events/agent", accept(MediaType.APPLICATION_JSON),  event -> {
 					AgentEvent ae = event.body(AgentEvent.class);

@@ -79,6 +79,7 @@ public class AuthInfoService {
 		log.warn("Application started event");
 
 		try {
+			// Load and republish user authentication info after service restart
 			if(aiFile.exists()) {
 				AuthInfo ai = objectMapper.readValue(aiFile, AuthInfo.class);
 
@@ -100,6 +101,7 @@ public class AuthInfoService {
 		try {
 			unscheduleRefresh();
 
+			// Temporarily save user authentication info before service restart
 			if(authInfo != null) {
 				objectMapper.writeValue(aiFile, authInfo);
 			}

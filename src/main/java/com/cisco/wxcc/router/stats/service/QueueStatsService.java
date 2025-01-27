@@ -52,7 +52,8 @@ public class QueueStatsService {
 		queueStatsStore.deleteAll();
 	}
 
-	@Scheduled(cron = "10 */5 * * * ?")
+	// Update queue stats every 3 minutes
+	@Scheduled(cron = "10 */3 * * * ?")
 	public void run() {
 		if(statsApiClient.authInfo() != null) {
 			log.info("Retrieving queue stats data");

@@ -22,9 +22,10 @@ public class StatsDataController {
 
 	@Bean
 	RouterFunction<ServerResponse> statsRoutes(QueueStatsService queueStatsService, TeamStatsService teamStatsService) {
+		// API endpoints for stats retrieval
 		return RouterFunctions.route()
 				.GET("/stats/queue/{name}", accept(MediaType.APPLICATION_JSON),  request -> {
-					log.info("Get queue stats");
+					log.info("Get queue stats for {}", request.pathVariable("name"));
 
 					QueueStats stats = queueStatsService.getStats(request.pathVariable("name"));
 					if(stats == null) {
@@ -34,7 +35,7 @@ public class StatsDataController {
 					return ServerResponse.status(200).body(stats);
 				})
 				.GET("/stats/team/{name}", accept(MediaType.APPLICATION_JSON),  request -> {
-					log.info("Get team stats");
+					log.info("Get team stats for {}", request.pathVariable("name"));
 
 					TeamStats stats = teamStatsService.getStats(request.pathVariable("name"));
 					if(stats == null) {

@@ -47,7 +47,8 @@ public class TeamStatsService {
 		teamStatsStore.deleteAll();
 	}
 
-	@Scheduled(cron = "20 */5 * * * ?")
+	// Update team stats every 3 minutes
+	@Scheduled(cron = "20 */3 * * * ?")
 	public void run() {
 		if(statsApiClient.authInfo() != null) {
 			log.info("Retrieving team stats data");
