@@ -16,6 +16,8 @@ Ensure the build environment is configured with the required libraries and tools
 * Configure the project application.yaml with the Client ID, Secret, and Redirect URL
 * Follow Gradle documentation to build, run, and deploy the service	
 
+IMPORTANT: The service URL must be SSL-enabled (HTTPS) to be accepted for event notification webhook URL.
+
 ### API Endpoints and Stats Details
 #### Queue Stats 
 * Endpoint: /stats/queue/{name}
