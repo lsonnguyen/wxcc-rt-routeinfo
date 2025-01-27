@@ -40,20 +40,6 @@ public class EventDataController {
 
 					return ServerResponse.status(200).body("OK");
 				})
-				.POST("/events/start", accept(MediaType.APPLICATION_JSON),  event -> {
-					log.info("Start event subscriptions");
-
-					eventApiClient.startSubscriptions();
-
-					return ServerResponse.status(200).body("OK");
-				})
-				.POST("/events/stop", accept(MediaType.APPLICATION_JSON),  event -> {
-					log.info("Stop event subscriptions");
-
-					eventApiClient.stopSubscriptions();
-
-					return ServerResponse.status(200).body("OK");
-				})
 				.GET("/events/agent", accept(MediaType.APPLICATION_JSON),  event -> {
 					log.info("Get agent data");
 

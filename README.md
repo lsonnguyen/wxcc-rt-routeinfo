@@ -1,8 +1,8 @@
 # WebexCC Realtime Route Info - wxcc-rt-routeinfo
-Sample project to provide WebexCC Queue and Team realtime & summary stats via REST endpoints. This aims to share current WebexCC state with CCX/CCE clients to assist with incremental transition to WebexCC.
+Sample project to demonstrate sharing WebexCC Queue and Team real-time & summary stats via REST API. The solution primarily aims to enable on-premise CCX/CCE clients to make intelligent routing decisions based on the current state of WebexCC to facilitate a smooth and incremental transition to the cloud platform.
 
 ### Environment Setup
-Ensure the build environment is configured with the required libraries and tools listed below.
+Ensure the project build environment is configured with the required libraries and tools listed below.
 
 * [Java SDK17 or later](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 * [Gradle Build Tool](https://gradle.org/releases/)
@@ -13,15 +13,15 @@ Ensure the build environment is configured with the required libraries and tools
   * Scopes: cjp:config, cjp:config_write, cjp:config_read, spark:people_read, cjp:user
   * Redirect URL: [Service Base URL]/login/oauth2/code/wxccrouter
 * Clone or download and extract the project to a local directory
-* Configure the project application.yaml with the Client ID, Secret, and Redirect URL
-* Follow Gradle documentation to build, run, and deploy the service	
+* Update the project /src/main/resources/application.yaml with the Client ID, Secret, and Redirect URL
+* Follow Gradle documentation to build and run the service executable JAR
 
 IMPORTANT: The service URL must be SSL-enabled (HTTPS) to be accepted for event notification webhook URL.
 
 ### API Endpoints and Stats Details
 #### Queue Stats 
 * Endpoint: /stats/queue/{name}
-* Data (CURRENT)
+* Data (Current Date)
   * queuedCount: number of calls currently in queue
   * connectedCount: number of calls currently connected to agents
   * abandonedCount: number of calls that has been abandoned while in queue
@@ -33,7 +33,7 @@ IMPORTANT: The service URL must be SSL-enabled (HTTPS) to be accepted for event 
   
 #### Team Stats
 * Endpoint: /stats/team/{name}
-* Data (CURRENT)
+* Data (Current Date)
   * avgIdleTime: average idle time for agents in the team
   * avgAvailTime: average available time for agents in the team
   * avgTalkTime: average talk time for agent in the team
