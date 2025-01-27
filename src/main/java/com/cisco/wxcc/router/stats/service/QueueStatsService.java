@@ -101,7 +101,7 @@ public class QueueStatsService {
 			stats.setAgentCount(agentEventService.getAgentCount(stats.getTeams()));
 			stats.setTeams(provDataService.getTeamNames(stats.getTeams()));
 
-			if(stats.getUpdatedTime()!= null && 
+			if(stats.getUpdatedTime() != null && 
 					DatetimeUtil.secondsElapsed(stats.getUpdatedTime(), 60)) {
 				Ewt ewt = statsApiClient.ewt(stats.getId());
 				if(ewt != null) {
