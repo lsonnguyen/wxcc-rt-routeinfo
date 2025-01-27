@@ -47,7 +47,7 @@ public class TeamStatsService {
 		teamStatsStore.deleteAll();
 	}
 
-	@Scheduled(cron = "10 */1 * * * ?")
+	@Scheduled(cron = "20 */5 * * * ?")
 	public void run() {
 		if(statsApiClient.authInfo() != null) {
 			log.info("Retrieving team stats data");

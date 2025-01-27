@@ -52,7 +52,7 @@ public class QueueStatsService {
 		queueStatsStore.deleteAll();
 	}
 
-	@Scheduled(cron = "10 */1 * * * ?")
+	@Scheduled(cron = "10 */5 * * * ?")
 	public void run() {
 		if(statsApiClient.authInfo() != null) {
 			log.info("Retrieving queue stats data");
@@ -100,7 +100,8 @@ public class QueueStatsService {
 			stats.setAgentCount(agentEventService.getAgentCount(stats.getTeams()));
 			stats.setTeams(provDataService.getTeamNames(stats.getTeams()));
 
-			if(DatetimeUtil.secondsElapsed(stats.getUpdatedTime(), 60)) {
+			if(stats.getUpdatedTime()!= null && 
+					DatetimeUtil.secondsElapsed(stats.getUpdatedTime(), 60)) {
 				Ewt ewt = statsApiClient.ewt(stats.getId());
 				if(ewt != null) {
 					stats.setEstWaitTime(ewt.getEstimatedWaitTime());
@@ -117,6 +118,7 @@ public class QueueStatsService {
 		final QueueStats stats = QueueStats.builder()
 				.id(task.getQueue().getId())
 				.name(task.getQueue().getName())
+				.updatedTime(System.currentTimeMillis())
 				.build();
 
 		task.getAggregation().forEach(aggr -> {
