@@ -24,8 +24,7 @@ spring:
             client-secret: <Your WxCC App Client Secret>
             scope: cjp:config,cjp:config_read,cjp:config_write,cjp:user,spark:people_read
             authorization-grant-type: authorization_code
-            #redirect-uri: <Service Base URL>/login/oauth2/code/wxccrouter
-            redirect-uri: https://wxcc-xda-si.webexccai.com/login/oauth2/code/wxccrouter
+            redirect-uri: <Service Base URL>/login/oauth2/code/wxccrouter
             login-uri: /
   codec:
     max-in-memory-size: 5MB
