@@ -36,6 +36,8 @@ public class QueueStats {
 
 	private Integer estWaitTime;
 
+	private Integer maxWaitTime;
+
 	private List<String> teams;
 
 	private Long updatedTime;

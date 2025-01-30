@@ -15,6 +15,7 @@ Ensure the project build environment is configured with the required libraries a
 * Clone or download and extract the project to a local directory
 * Update the project /src/main/resources/application.yaml with the Client ID, Secret, and Redirect URL
 * Follow Gradle documentation to build and run the service executable JAR
+* Once the service has started, open the service URL from a browser and log in using your WebexCC Admin account to activate the service.
 
 IMPORTANT: The service URL must be SSL-enabled (HTTPS) to be accepted for event notification webhook URL.
 

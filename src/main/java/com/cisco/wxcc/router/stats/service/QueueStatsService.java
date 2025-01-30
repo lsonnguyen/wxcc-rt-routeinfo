@@ -98,10 +98,11 @@ public class QueueStatsService {
 		if(stats != null) {
 			stats.setQueuedCount(taskEventService.getQueuedCount(stats.getId()));
 			stats.setConnectedCount(taskEventService.getConnectedCount(stats.getId()));
+			stats.setMaxWaitTime(taskEventService.getMaxQueueTime(stats.getId()));
 			stats.setAgentCount(agentEventService.getAgentCount(stats.getTeams()));
 			stats.setTeams(provDataService.getTeamNames(stats.getTeams()));
 
-			if(stats.getUpdatedTime() != null && 
+			if(stats.getUpdatedTime() != null &&
 					DatetimeUtil.secondsElapsed(stats.getUpdatedTime(), 60)) {
 				Ewt ewt = statsApiClient.ewt(stats.getId());
 				if(ewt != null) {
@@ -138,6 +139,9 @@ public class QueueStatsService {
 					break;
 				case "avgTalkTime":
 					stats.setAvgTalkTime(aggr.getValue());
+					break;
+				case "maxWaitTime":
+					stats.setMaxWaitTime((int) (System.currentTimeMillis() - aggr.getValue()));
 					break;
 			}
 		});

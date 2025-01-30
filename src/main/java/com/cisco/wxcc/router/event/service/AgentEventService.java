@@ -77,10 +77,10 @@ public class AgentEventService {
         				if(data.getCurrentState() == AgentState.LOGGED_OUT) {
         					agentDataStore.delete(data);
         				} else {
-        					Optional<AgentData> curr = agentDataStore.findById(data.getAgentId());
-        					if(curr.isPresent()) {
-        						AgentData d = curr.get();
-        						agentDataStore.save(mergeData(data, d));
+        					Optional<AgentData> opt = agentDataStore.findById(data.getAgentId());
+        					if(opt.isPresent()) {
+        						AgentData ad = opt.get();
+        						agentDataStore.save(mergeData(data, ad));
         					} else {
         						agentDataStore.save(data);
         					}

@@ -52,6 +52,21 @@ public class TaskEventService {
 		return taskDataStore.countByQueueIdAndCurrentState(queueId, TaskState.CONNECTED);
 	}
 
+	public Integer getMaxQueueTime(String queueId) {
+		Optional<TaskData> opt = taskDataStore
+				.findFirstByQueueIdAndCurrentStateOrderByCreatedTimeAsc(
+						queueId, TaskState.PARKED);
+
+		if(opt.isPresent()) {
+			TaskData td = opt.get();
+			log.info("Longest wait - taskId: {}, createdTime: {}", td.getTaskId(), td.getCreatedTime());
+
+			return Integer.valueOf((int) (System.currentTimeMillis() - td.getCreatedTime().longValue()));
+		}
+
+		return null;
+	}
+
 	@Bean
 	public void taskDataQueue() {
 		taskDataQueue = new LinkedBlockingQueue<>();
@@ -66,10 +81,10 @@ public class TaskEventService {
         				if(data.getCurrentState() == TaskState.ENDED) {
         					taskDataStore.delete(data);
         				} else {
-        					Optional<TaskData> curr = taskDataStore.findById(data.getTaskId());
-        					if(curr.isPresent()) {
-        						TaskData d = curr.get();
-        						taskDataStore.save(mergeData(data, d));
+        					Optional<TaskData> opt = taskDataStore.findById(data.getTaskId());
+        					if(opt.isPresent()) {
+        						TaskData td = opt.get();
+        						taskDataStore.save(mergeData(data, td));
         					} else {
         						taskDataStore.save(data);
         					}
