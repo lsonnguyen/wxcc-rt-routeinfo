@@ -31,7 +31,7 @@ IMPORTANT: The deployed Service URL must be SSL-enabled (HTTPS) to be accepted b
   * avgTalkTime: average talk/connected time computed for the current interval
   * estWaitTime: estimated wait time for the queue
   * maxWaitTime: current longest wait time in queue
-  * teams: list of team associated with the queue
+  * teams: list of agent teams associated with the queue
   
 #### Team Stats
 * Endpoint: /stats/team/{name}
