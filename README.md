@@ -1,5 +1,5 @@
 # WebexCC Realtime Route Info - wxcc-rt-routeinfo
-Sample project to demonstrate sharing WebexCC Queue and Team real-time & summary stats via REST API. The solution primarily aims to enable on-premise CCX/CCE clients to make intelligent routing decisions based on the current state of WebexCC to facilitate a smooth and incremental transition to the cloud platform.
+Sample project to demonstrate publishing WebexCC Queue and Team real-time & summary statistics via REST API. The solution primarily aims to enable on-premise CCX/CCE clients to make intelligent routing decisions based on the current state of WebexCC to facilitate a smooth and incremental transition to the cloud platform.
 
 ### Environment Setup
 Ensure the project build environment is configured with the required libraries and tools listed below.
@@ -11,13 +11,13 @@ Ensure the project build environment is configured with the required libraries a
 
 * Create a new [WxCC App](https://developer.webex-cx.com/my-apps) to generate the Client ID & Secret with the foolwing settings
   * Scopes: cjp:config, cjp:config_write, cjp:config_read, spark:people_read, cjp:user
-  * Redirect URL: [Service Base URL]/login/oauth2/code/wxccrouter
+  * Redirect URL: [Service URL]/login/oauth2/code/wxccrouter
 * Clone or download and extract the project to a local directory
 * Update the project /src/main/resources/application.yaml with the Client ID, Secret, and Redirect URL
 * Follow Gradle documentation to build and run the service executable JAR
-* Once the service has started, open the service URL from a browser and log in using your WebexCC Admin account to activate the service.
+* Once the service has started, open the Service URL from a browser and log in using your WebexCC Admin account to activate the service.
 
-IMPORTANT: The service URL must be SSL-enabled (HTTPS) to be accepted for event notification webhook URL.
+IMPORTANT: The deployed Service URL must be SSL-enabled (HTTPS) to be accepted by WebexCC Subscription API for event notification webhook URL.
 
 ### API Endpoints and Stats Details
 #### Queue Stats 
@@ -30,6 +30,7 @@ IMPORTANT: The service URL must be SSL-enabled (HTTPS) to be accepted for event 
   * avgQueueTime: average queue time computed for the current interval
   * avgTalkTime: average talk/connected time computed for the current interval
   * estWaitTime: estimated wait time for the queue
+  * maxWaitTime: current longest wait time in queue
   * teams: list of team associated with the queue
   
 #### Team Stats
