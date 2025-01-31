@@ -1,5 +1,5 @@
 # WebexCC Realtime Route Info - wxcc-rt-routeinfo
-Sample project to demonstrate publishing WebexCC Queue and Team real-time & summary statistics via REST API. The solution primarily aims to enable on-premise CCX/CCE clients to make intelligent routing decisions based on the current state of WebexCC to facilitate a smooth and incremental transition to the cloud platform.
+Sample project to demonstrate making available WebexCC Queue and Team real-time & summary statistics via REST API. The solution primarily aims to enable on-premise CCX/CCE clients to make intelligent routing decisions based on the current state of WebexCC to facilitate a smooth and incremental transition to the cloud platform.
 
 ### Environment Setup
 Ensure the project build environment is configured with the required libraries and tools listed below.

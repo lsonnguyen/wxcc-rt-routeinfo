@@ -48,6 +48,14 @@
             type: average
             name: "avgTalkTime" 
         }
+        {
+            field: "createdTime"
+            type: min
+            name: "maxWaitTime"
+            filter: {
+                status: { equals: "parked"}
+            }
+        }
     ]
   ) {
     tasks {
