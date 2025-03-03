@@ -55,4 +55,4 @@ IMPORTANT: The deployed Service URL must be SSL-enabled (HTTPS) to be accepted b
 * [Official Gradle documentation](https://docs.gradle.org)
 * [Building a Reactive RESTful Web Service](https://spring.io/guides/gs/reactive-rest-service/)
 * [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
-* [Lombok Setup] (https://projectlombok.org/setup/)
+* [Lombok Setup](https://projectlombok.org/setup/)
