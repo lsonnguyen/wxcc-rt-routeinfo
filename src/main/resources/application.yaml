@@ -20,11 +20,11 @@ spring:
             user-name-attribute: userName
         registration:
           wxccrouter:
-            client-id: <Your WxCC App Client ID>
-            client-secret: <Your WxCC App Client Secret>
+            client-id: C9e5f3ad3ae2fa960f8baadcab0bc55c417d920025ee74d1fb11a32fb43291410
+            client-secret: 94873f9065bc7d1e0c672e3758c570169d065f7fa928fdd2c55d2c3c2965f830
             scope: cjp:config,cjp:config_read,cjp:config_write,cjp:user,spark:people_read
             authorization-grant-type: authorization_code
-            redirect-uri: <Service Base URL>/login/oauth2/code/wxccrouter
+            redirect-uri: https://wxcc-xda-si.webexccai.com/login/oauth2/code/wxccrouter
             login-uri: /
   codec:
     max-in-memory-size: 5MB

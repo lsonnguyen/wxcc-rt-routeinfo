@@ -9,7 +9,7 @@ Ensure the project build environment is configured with the required libraries a
 
 ### Project Setup
 
-* Create a new [WxCC App](https://developer.webex-cx.com/my-apps) to generate the Client ID & Secret with the foolwing settings
+* Create a new [WxCC Integration](https://developer.webex-cx.com/my-apps) to generate the Client ID & Secret with the following settings
   * Scopes: cjp:config, cjp:config_write, cjp:config_read, spark:people_read, cjp:user
   * Redirect URL: [Service URL]/login/oauth2/code/wxccrouter
 * Clone or download and extract the project to a local directory

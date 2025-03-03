@@ -18,6 +18,7 @@ import com.cisco.wxcc.router.stats.model.queue.QueueStats;
 import com.cisco.wxcc.router.stats.model.queue.Task;
 import com.cisco.wxcc.router.stats.repo.QueueStatsStore;
 import com.cisco.wxcc.router.util.DatetimeUtil;
+import com.cisco.wxcc.router.util.ObjectUtil;
 import com.cisco.wxcc.router.util.QueryUtil;
 
 import lombok.extern.slf4j.Slf4j;
@@ -139,9 +140,6 @@ public class QueueStatsService {
 					break;
 				case "avgTalkTime":
 					stats.setAvgTalkTime(aggr.getValue());
-					break;
-				case "maxWaitTime":
-					stats.setMaxWaitTime((int) (System.currentTimeMillis() - aggr.getValue()));
 					break;
 			}
 		});
