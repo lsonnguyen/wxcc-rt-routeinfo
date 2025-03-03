@@ -46,19 +46,13 @@ IMPORTANT: The deployed Service URL must be SSL-enabled (HTTPS) to be accepted b
 
 
 ### Reference Documentation
-For further reference, please consider the following sections:
+* [WebexCC Subscriptions API](https://developer.webex-cx.com/documentation/subscriptions)
+* [Event Notification Webhook Guide](https://developer.webex-cx.com/documentation/guides/using-webhooks)
 
+### Additional References
 * [OAuth2 Client](https://docs.spring.io/spring-boot/docs/3.3.4/reference/htmlsingle/index.html#web.security.oauth2.client)
 * [Spring Reactive Web](https://docs.spring.io/spring-boot/docs/3.3.4/reference/htmlsingle/index.html#web.reactive)
 * [Official Gradle documentation](https://docs.gradle.org)
-
-### Guides
-The following guides illustrate how to use some features concretely:
-
 * [Building a Reactive RESTful Web Service](https://spring.io/guides/gs/reactive-rest-service/)
-
-### Additional Links
-These additional references should also help you:
-
 * [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
-
+* [Lombok Setup] (https://projectlombok.org/setup/)
